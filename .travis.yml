@@ -1,0 +1,27 @@
+language: node_js
+node_js: stable
+
+install:
+  - npm install
+
+script:
+  - hexo g
+
+after_script:
+  - cd ./public
+  - echo "fmdi.top" > CNAME
+  - cp ../404.html .
+  - git init
+  - git config user.name "Sariel Fei"
+  - git config user.email "948777467@qq.com"
+  - git add .
+  - git commit -m "Update docs"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+
+branches:
+  only:
+    - hexo
+
+env:
+ global:
+   - GH_REF: github.com/sarielfei/sarielfei.github.io.git
