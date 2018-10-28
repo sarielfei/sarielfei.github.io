@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hold heart</title>
+  
+  <subtitle>学生</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://fmdi.top/"/>
+  <updated>2018-10-28T11:31:19.857Z</updated>
+  <id>https://fmdi.top/</id>
+  
+  <author>
+    <name>Sariel Fei</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HOLD heart</title>
+    <link href="https://fmdi.top/2018/10/28/hello-world/"/>
+    <id>https://fmdi.top/2018/10/28/hello-world/</id>
+    <published>2018-10-28T12:20:00.000Z</published>
+    <updated>2018-10-28T11:31:19.857Z</updated>
+    
+    <content type="html"><![CDATA[<p>Hold heart,don’t beat so loud<br>For me keep your calm,as he walks out<br>No tears,don’t you come out</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Hold heart,don’t beat so loud&lt;br&gt;For me keep your calm,as he walks out&lt;br&gt;No tears,don’t you come out&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
