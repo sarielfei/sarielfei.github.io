@@ -1,170 +1,363 @@
 <!DOCTYPE html>
-<html>
-  <!-- Html Head Tag-->
-  <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="Sariel Fei">
-  <!-- Open Graph Data -->
-  <meta property="og:title" content="Hold heart"/>
-  <meta property="og:description" content="戒躁，喜伤心怒伤肝" />
-  <meta property="og:site_name" content="Hold heart"/>
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://fmdi.top"/>
-  
-    <link rel="alternate" href="/atom.xml" title="Hold heart" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>瀹炵敤宸ュ叿鍚堥泦 | 鏃犲伩鍒嗕韩</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf8f5;
+  --surface: #f3f0eb;
+  --surface-hover: #ede8e0;
+  --text: #1a1815;
+  --text-muted: #6b6560;
+  --accent: #6b8f5e;
+  --accent-hover: #5a7a4e;
+  --accent-dim: #e8efe4;
+  --rule: #dbd6cf;
+  --warm: #e07b5a;
+}
 
-  <!-- Site Title -->
-  <title>Hold heart</title>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.min.css">
-  <!-- Custom CSS -->
-  
-  <link rel="stylesheet" href="/css/style.light.css">
+html {
+  font-size: clamp(16px, 1.6vw, 18px);
+  scroll-behavior: smooth;
+}
 
-  <!-- Google Analytics -->
-  
+body {
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
+/* Header */
+header {
+  padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 6vw, 4rem) clamp(2rem, 5vw, 3rem);
+  border-bottom: 1px solid var(--rule);
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--text);
+  max-width: 20ch;
+}
+
+h1 span {
+  display: block;
+  color: var(--accent);
+  font-size: 0.55em;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 0.3em;
+}
+
+.subtitle {
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  color: var(--text-muted);
+  font-weight: 300;
+  margin-top: 1rem;
+  max-width: 36ch;
+  letter-spacing: 0.01em;
+}
+
+/* Main grid */
+.resources {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+  margin: 0 clamp(1.5rem, 6vw, 4rem);
+}
+
+@media (max-width: 768px) {
+  .resources {
+    grid-template-columns: 1fr;
+  }
+}
+
+.resource-card {
+  background: var(--bg);
+  padding: clamp(2rem, 5vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  transition: background 0.25s ease;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+.resource-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.resource-card:hover { background: var(--surface); }
+.resource-card:hover::before { transform: scaleX(1); }
+
+.card-icon {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.card-title {
+  font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  color: var(--text);
+}
+
+.card-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  margin-top: 0.6rem;
+  line-height: 1.55;
+}
+
+.card-meta {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-family: 'DM Mono', monospace;
+}
+
+.card-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.card-meta-item::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.8rem;
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--bg);
+  background: var(--accent);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  align-self: flex-start;
+  border-radius: 2px;
+}
+
+.btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(107, 143, 94, 0.25);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.btn::after {
+  content: '鈫?;
+  transition: transform 0.2s ease;
+}
+
+.btn:hover::after {
+  transform: translateX(3px);
+}
+
+/* Footer */
+footer {
+  padding: clamp(2rem, 5vw, 3.5rem) clamp(1.5rem, 6vw, 4rem);
+  border-top: 1px solid var(--rule);
+  margin-top: clamp(2rem, 5vw, 4rem);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.footer-tagline {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.footer-update {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-family: 'DM Mono', monospace;
+}
+
+.footer-right {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: right;
+}
+
+.footer-right a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-right a:hover {
+  color: var(--accent-hover);
+}
+
+/* Badge */
+.badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 0.2em 0.6em;
+  border-radius: 2px;
+  background: var(--accent-dim);
+  color: var(--accent);
+  letter-spacing: 0.03em;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+/* Divider section */
+.section-head {
+  padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 6vw, 4rem);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: 'DM Mono', monospace;
+}
+
+/* Pulse dot */
+.pulse {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--warm);
+  margin-right: 0.4rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.3); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse { animation: none; }
+  .resource-card, .btn, .btn::after { transition: none; }
+}
+</style>
 </head>
+<body>
 
-  <body>
-    <!-- Page Header -->
-
-
-<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="page-title with-background-image">
-          <p class="title">Hold heart</p>
-          <p class="subtitle">学生</p>
-        </div>
-        <div class="site-menu with-background-image">
-          <ul>
-            
-              <li>
-                <a href="/">
-                  
-                  Home
-                  
-                </a>
-              </li>
-            
-              <li>
-                <a href="/archives">
-                  
-                  Archives
-                  
-                </a>
-              </li>
-            
-              <li>
-                <a href="https://github.com/<your-github-username>">
-                  
-                  Github
-                  
-                </a>
-              </li>
-            
-              <li>
-                <a href="mailto:<your-email-address>">
-                  
-                  Email
-                  
-                </a>
-              </li>
-            
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+<header>
+  <h1>
+    <span>鍏嶈垂璧勬簮鍒嗕韩</span>
+    瀹炵敤宸ュ叿鍚堥泦
+  </h1>
+  <p class="subtitle">
+    WPS姘镐箙婵€娲荤増 &amp; AI鎸囦护鍚堥泦锛屾墍鏈夎祫婧愭案涔呮湁鏁堬紝鐐瑰嚮鍗冲彇銆?  </p>
 </header>
 
-<!-- Home Page Post List -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-10 col-md-10 col-md-offset-1">
-      
-        <div class="post-item-wrapper">
-  <a href="/2018/10/28/hello-world/" class="post-title">
-      HOLD heart
-  </a>
-  <div class="post-excerpt">
-    <!-- Post Date and Categories -->
-    <div class="date-and-category">
-      <div class="date">2018-10-28</div>
-      <div class="categories">
-        
-          Uncategorized
-        
+<main>
+  <div class="section-head"><span class="pulse"></span>褰撳墠鍙璧勬簮</div>
+
+  <div class="resources">
+
+    <article class="resource-card">
+      <div>
+        <div class="card-icon">01 / 杞欢宸ュ叿</div>
+        <h2 class="card-title">WPS Office<br>姘镐箙婵€娲荤増</h2>
+        <p class="card-desc">鍚獳I鍔╂墜鎻掍欢 + WPS PDF姘镐箙婵€娲荤増锛屽姙鍏繀澶囧瑁呫€?/p>
+        <div class="card-meta">
+          <span class="card-meta-item">23 鏂囦欢</span>
+          <span class="card-meta-item">1.3 GB</span>
+        </div>
       </div>
-    </div>
-    <!-- Post Excerpt -->
-    <div class="excerpt typo">No Post Excerpt</div>
-    <!-- Post Tags -->
-    <div class="tags">
-      
-        <div class="untagged">Untagged</div>
-      
-    </div>
+      <a href="https://pan.quark.cn/s/81b1c57d38c8" target="_blank" rel="noopener" class="btn">
+        绔嬪嵆鑾峰彇
+      </a>
+    </article>
+
+    <article class="resource-card">
+      <div>
+        <div class="card-icon">02 / AI 鎸囦护</div>
+        <h2 class="card-title">2025 AI鎸囦护<br>鍏ㄩ泦<span class="badge">鐑棬</span></h2>
+        <p class="card-desc">瑕嗙洊40涓儹闂ㄨ涓氱殑楂樿川閲廇I鎸囦护锛屽惈瑙嗛鏁欑▼锛岃В鍐冲唴瀹瑰垱浣滈毦棰樸€?/p>
+        <div class="card-meta">
+          <span class="card-meta-item">168 鏂囦欢</span>
+          <span class="card-meta-item">2.3 GB</span>
+        </div>
+      </div>
+      <a href="https://pan.quark.cn/s/4f572d638416" target="_blank" rel="noopener" class="btn">
+        绔嬪嵆鑾峰彇
+      </a>
+    </article>
+
   </div>
-</div>
+</main>
 
-      
-    </div>
-  </div>
-</div>
-
-<!-- Pagination -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-10 col-md-10 col-md-offset-1">
-      <ul class="pagination">
-          
-          
-      </ul>
-    </div>
-  </div>
-</div>
-
-
-
-    <!-- Footer -->
 <footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <p class="copyright text-muted">
-          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
-          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
-        <p class="copyright text-muted">
-          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
-        </p>
-      </div>
-    </div>
+  <div class="footer-left">
+    <p class="footer-tagline">鏇村璧勬簮鎸佺画鏇存柊涓?/p>
+    <p class="footer-update">涓婃鏇存柊 2026.06.28</p>
+  </div>
+  <div class="footer-right">
+    濡傛湁闂璇疯仈绯?br>
+    <a href="#contact">mindfly.cn@gmail.com</a>
   </div>
 </footer>
 
-
-    <!-- After Footer Scripts -->
-<script src="/js/highlight.pack.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function(event) {
-    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
-    codeBlocks.forEach(function(block, index) {
-      hljs.highlightBlock(block);
-    });
-  });
-</script>
-
-  </body>
+</body>
 </html>
-
